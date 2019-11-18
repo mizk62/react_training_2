@@ -3,8 +3,6 @@ import React from 'react';
 import Form from './Form';
 import Todo from './Todo';
 
-let currentId = 0;
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -19,8 +17,8 @@ class App extends React.Component {
         <Form onSubmit={this.handleSubmit}/>
 
         <ul>
-          {this.state.todos.map(({ id, text }) => (
-            <li key={id}>
+          {this.state.todos.map(({ text }, index) => (
+            <li key={index}>
               <Todo text={text}/>
             </li>
           ))}
@@ -32,12 +30,10 @@ class App extends React.Component {
 
   handleSubmit = text => {
     const newTodo ={
-      id: currentId,
       text,
     }
     const newTodos = [...this.state.todos, newTodo]
     this.setState({ todos: newTodos})
-    currentId++;
   }
 }
 
