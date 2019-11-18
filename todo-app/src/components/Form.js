@@ -12,7 +12,7 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form　onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <input type="text" value={this.state.input} onChange={this.handleChange}/>
         <button>登録</button>
       </form>
@@ -20,7 +20,7 @@ class Form extends React.Component {
   }
 
   handleChange = e => {
-    this.setState({ input: e.currentTarget.value})
+    this.setState({ input: e.target.value})
   }
 
   handleSubmit = e => {
